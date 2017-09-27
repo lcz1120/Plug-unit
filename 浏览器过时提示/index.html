@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>检测浏览器版本提示升级js插件|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/css/uikit.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.21.0/css/uikit.almost-flat.min.css"/>
+	<link href="css/badbrowser.css" rel="stylesheet"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/languages/javascript.min.js"></script>
+	<script src="js/badbrowser.js"></script>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>检测浏览器版本提示升级js插件 <span>checks user's browser and then shows a warning if browser version doesn't fit minimal requirements</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/jQuery/jquery-tools/201709044720.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<article class="uk-width-7-10 uk-container-center">
+			<p>The library checks user's browser and then shows a warning if browser version doesn't fit minimal requirements.
+<pre><code class="bash">npm i @dvhb/badbrowser</code></pre>
+<button class="uk-button uk-button-primary" onclick="demoFull()">Demo (fullscreen)</button>&nbsp;<button class="uk-button uk-button-primary" onclick="demoModal()">Demo (modal)</button>&nbsp;<button class="uk-button uk-button-primary" onclick="demoLogo()">Demo (fullscreen + logo)</button>&nbsp;<button class="uk-button uk-button-primary" onclick="demoCustomTemplate()">Demo (custom templates)</button></p>
+<pre>
+<code class="javascript">
+import badbrowser from '@dvhb/badbrowser'
+
+badbrowser.init({
+    // path to your html alerts
+    // could be a function:
+    // function (ua) {
+    //   return '/alerts/' + lang + '.html'
+    // }
+    path: '/alerts/en.html',
+    // if `false` then user's choice will be saved in the cookies
+    // and alert window will not be showen next time
+    ignoreChoice: false,
+    // Min version of browser that will be supported
+    supported: {
+        // user of chrome v.39 will see an alert winodw
+        chrome: 42,
+        firefox: 38,
+        msie: 9,
+        opera: 26,
+        android: 10,
+        safari: 6,
+        // if `false`, will show alert for any mobile browser
+        mobile: false
+    }
+})</code>
+</pre></p>
+		</article>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/jQuery/jquery-tools/feature-js.html">
+			  <img src="related/1.jpg" width="300" alt="Feature.js-轻量级浏览器特性检测JavaScript库插件"/>
+			  <h3>Feature.js-轻量级浏览器特性检测JavaScript库插件</h3>
+			</a>
+			<a href="http://www.htmleaf.com/jQuery/Form/201502091352.html">
+			  <img src="related/2.jpg" width="300" alt="is.js-强大的通用js表单验证插件"/>
+			  <h3>is.js-强大的通用js表单验证插件</h3>
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		hljs.initHighlightingOnLoad();
+		function demoFull() {
+		    badbrowser.init({
+			path: './alerts/zh.html',
+		        // if `false` then user's choice will be saved in the cookies
+		        // and alert window will not be showen next time
+		        ignoreChoice: true,
+		        // if false alert will be shown in a modal window
+		        fullscreen: true,
+		        // Min version of browser that will be supported
+
+		        supported: {
+		            // user of chrome v.39 will see an alert winodw
+		            chrome: '100',
+		            firefox: '100',
+		            msie: '100',
+		            opera: '100',
+		            android: '100',
+		            safari: '100',
+		            // if `false`, will show alert for any mobile browser
+		            mobile: false
+		        }
+		    })
+		}
+		function demoModal() {
+		    badbrowser.init({
+			path: './alerts/zh.html',
+		        // if `false` then user's choice will be saved in the cookies
+		        // and alert window will not be showen next time
+		        ignoreChoice: true,
+		        // if false alert will be shown in a modal window
+		        fullscreen: false,
+		        // Min version of browser that will be supported
+		        supported: {
+		            // user of chrome v.39 will see an alert winodw
+		            chrome: '100',
+		            firefox: '100',
+		            msie: '100',
+		            opera: '100',
+		            android: '100',
+		            safari: '100',
+		            // if `false`, will show alert for any mobile browser
+		            mobile: false
+		        }
+		    })
+		}
+		function demoLogo() {
+		    badbrowser.init({
+			path: './alerts/zh.html',
+		        // if `false` then user's choice will be saved in the cookies
+		        // and alert window will not be showen next time
+		        ignoreChoice: true,
+		        // if false alert will be shown in a modal window
+		        fullscreen: true,
+		        logo: 'img/logo.svg',
+		        // Min version of browser that will be supported
+		        supported: {
+		            // user of chrome v.39 will see an alert winodw
+		            chrome: '100',
+		            firefox: '100',
+		            msie: '100',
+		            opera: '100',
+		            android: '100',
+		            safari: '100',
+		            // if `false`, will show alert for any mobile browser
+		            mobile: false
+		        }
+		    })
+		}
+
+		function demoCustomTemplate() {
+		    badbrowser.init({
+			path: './alerts/zh.html',
+		        // if `false` then user's choice will be saved in the cookies
+		        // and alert window will not be showen next time
+		        ignoreChoice: true,
+		        // Min version of browser that will be supported
+		        supported: {
+		            // user of chrome v.39 will see an alert winodw
+		            chrome: '100',
+		            firefox: '100',
+		            msie: '100',
+		            opera: '100',
+		            android: '100',
+		            safari: '100',
+		            // if `false`, will show alert for any mobile browser
+		            mobile: false
+		        }
+		    })
+		}</script>
+	</script>
+	
+</body>
+</html>
